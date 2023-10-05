@@ -63,13 +63,13 @@ List* get_adj_nodes(Node* n){
             nuevonodo->sudo[fila][columna]=1;
             pushFront(list,nuevonodo);
             
-          }
-          
-          for(int num=2;num<=9;num++){
+          }else{
             
-            Node *nuevonodo=copy(n);
-            nuevonodo->sudo[fila][columna]=num;
-            pushFront(list,nuevonodo);
+          }for(int num=2;num<=9;num++){
+            
+              Node *nuevonodo=copy(n);
+              nuevonodo->sudo[fila][columna]=num;
+              pushFront(list,nuevonodo);
             
             
           }
