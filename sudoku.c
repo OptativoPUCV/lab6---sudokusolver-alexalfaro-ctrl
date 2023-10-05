@@ -59,7 +59,7 @@ List* get_adj_nodes(Node* n){
         
         if(n->sudo[fila][columna]==0){
           
-          for(int num=1;num<=9;num++){
+          for(int num=0;num<9;num++){
             
             Node *nuevonodo=copy(n);
             nuevonodo->sudo[fila][columna]=num;
