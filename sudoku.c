@@ -71,7 +71,23 @@ int is_valid(Node* n){
       }
     }
   }
-
+  for(int i=0;i<9;i+=3){
+    for(int j=0;j<9;j+=3){
+      int nums[10] = {0};
+      for(fila=0;fila<3;fila++){
+        for(columna=0;columna<3;columna++){
+          int num=n->sudo[fila+i][columna+j];
+          if(num!=0){
+            if(nums[num]){
+              return 0;
+            }
+          }
+          nums[num]=1;
+          
+        }
+      }
+    }
+  }
     return 1;
 }
 
