@@ -300,3 +300,37 @@ Thu 05 Oct 2023 10:06:40 PM UTC:
  tests:  6|2
 total_score: 45/70
 e44cfe4
+Thu 05 Oct 2023 10:12:20 PM UTC: 
+ sudoku.c | 54 +++++++++++++++++++++++++-----------------------------
+ 1 file changed, 25 insertions(+), 29 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:76:5: error: expected ‘,’ or ‘;’ before ‘for’
+   76 |     for(p=0;p<9;p++){
+      |     ^~~
+sudoku.c:76:13: error: ‘p’ undeclared (first use in this function)
+   76 |     for(p=0;p<9;p++){
+      |             ^
+sudoku.c:76:13: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:76:20: error: expected ‘;’ before ‘)’ token
+   76 |     for(p=0;p<9;p++){
+      |                    ^
+      |                    ;
+sudoku.c:76:20: error: expected statement before ‘)’ token
+sudoku.c:81:14: error: ‘seen’ undeclared (first use in this function); did you mean ‘setenv’?
+   81 |           if(seen[num]){
+      |              ^~~~
+      |              setenv
+sudoku.c:75:9: error: variable ‘matris’ set but not used [-Werror=unused-but-set-variable]
+   75 |     int matris[9]={0}
+      |         ^~~~~~
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:116:22: error: expected ‘;’ before ‘}’ token
+  116 |           return list
+      |                      ^
+      |                      ;
+  117 |         }
+      |         ~             
+cc1: all warnings being treated as errors
+Compilation failed
+5b1289e

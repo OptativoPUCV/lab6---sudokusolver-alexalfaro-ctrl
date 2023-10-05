@@ -43,56 +43,52 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n) {
-    // Verificar filas
-    for (int fila = 0; fila < 9; fila++) {
-        int nums[10] = {0}; // Inicializa un array para rastrear los números en la fila
-        for (int col = 0; col < 9; col++) {
-            int num = n->sudo[fila][col];
-            if (num != 0) {
-                if (nums[num]) {
-                    // El número ya se ha visto, es un duplicado en la fila
-                    return 0;
-                }
-                nums[num] = 1;
-            }
-        }
+int is_valid(Node* n){
+  int fila,columna;
+  for (fila=0;fila<9;fila++){
+    int array[9]={0};
+    for(columna=0;columna<9;columna++){
+      if(n->sudo[fila][columna]==0){
+        continue;
+      }
+      if(array[n->sudo[fila][columna]-1]==1){
+        return 0;
+      }
+      array[n->sudo[fila][columna]-1]=1;
     }
+  }
 
-    // Verificar columnas
-    for (int col = 0; col < 9; col++) {
-        int nums[10] = {0}; // Inicializa un array para rastrear los números en la columna
-        for (int fila = 0; fila < 9; fila++) {
-            int num = n->sudo[fila][col];
-            if (num != 0) {
-                if (nums[num]) {
-                    // El número ya se ha visto, es un duplicado en la columna
-                    return 0;
-                }
-                nums[num] = 1;
-            }
-        }
+  for (columna=0;columna<9;columna++){
+    int col[9]={0};
+    for(fila=0;fila<9;fila++){
+      if(n->sudo[fila][columna]==0){
+        continue;
+      }
+      if(col[n->sudo[fila][columna]-1]==1){
+        return 0;
+      }
+      col[n->sudo[fila][columna]-1]=1;
     }
+  }
 
-    // Verificar todas las submatrices de 3x3 (k de 1 a 9)
-    for (int k = 1; k <= 9; k++) {
-        int seen[10] = {0}; // Array para rastrear los números vistos en la submatriz
-        for (int p = 0; p < 9; p++) {
-            int i = 3 * ((k - 1) / 3) + (p / 3);
-            int j = 3 * ((k - 1) % 3) + (p % 3);
-            int num = n->sudo[i][j];
-            if (num != 0) {
-                if (seen[num]) {
-                    // El número ya se ha visto, es un duplicado en la submatriz
-                    return 0;
-                }
-                seen[num] = 1;
-            }
+  for(int k=1 ;k<=9;k++){
+    int matris[9]={0}
+    for(p=0;p<9;p++){
+        int i=3*(k/3) + (p/3) ;
+        int j=3*(k%3) + (p%3) ;
+        int num = n->sudo[i][j];
+        if(num!=0){
+          if(seen[num]){
+            return 0;
+          }
+          matris[num]=1;
         }
+        
     }
+  }
 
-    // Si no se encontraron duplicados en filas, columnas o submatrices, el Sudoku es válido
-    return 1;
+
+  return 1;
 }
 
 
@@ -117,7 +113,7 @@ List* get_adj_nodes(Node* n){
             }
             
           }
-          return list;
+          return list
         }
         
       }
