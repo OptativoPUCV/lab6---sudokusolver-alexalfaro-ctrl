@@ -91,6 +91,8 @@ List* get_adj_nodes(Node* n){
             nuevonodo->sudo[fila][columna]=num;
             if(is_valid(nuevonodo)){
               pushBack(list,nuevonodo);
+            }else{
+              free(nuevonodo);
             }
             
             
