@@ -73,7 +73,7 @@ int is_valid(Node* n){
 
   for(int k=1 ;k<=9;k++){
     int matris[9]={0}
-    for(p=0;p<9;p++){
+    for(int p=0;p<9;p++){
         int i=3*(k/3) + (p/3) ;
         int j=3*(k%3) + (p%3) ;
         int num = n->sudo[i][j];
