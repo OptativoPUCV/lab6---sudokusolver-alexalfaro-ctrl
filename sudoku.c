@@ -52,12 +52,19 @@ int is_valid(Node* n){
 List* get_adj_nodes(Node* n){
   
     List* list=createList();
-  
+    int primervacio=0;
     for (int fila=0;fila<9;fila++){
       
       for (int columna=0;columna<9;columna++){
         
         if(n->sudo[fila][columna]==0){
+          if(primervacio==0){
+            Node *nuevonodo=copy(n);
+            nuevonodo->sudo[fila][columna]=1;
+            pushFront(list,nuevonodo);
+            primervacio=1;
+            
+          }
           
           for(int num=1;num<=9;num++){
             
