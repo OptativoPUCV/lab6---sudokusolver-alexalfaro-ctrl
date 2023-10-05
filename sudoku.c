@@ -48,17 +48,16 @@ int is_valid(Node* n){
   for (fila=0;fila<9;fila++){
     int array[9]={0};
     for(columna=0;columna<9;columna++){
-      int num=n->sudo[fila][columna];
-      if (num!=0){
-        if (array[num]){
-            return 0;
-        }
-        array[num] = 1;
+      if(n->sudo[fila][columna]==0){
+        continue;
       }
-    } 
+      if(array[n->sudo[fila][columna]-1]==1){
+        return 0;
+      }
+      array[n->sudo[fila][columna]-1]=1;
+    }
   }
-
-
+  
   for(columna=0;columna<9;columna++){
     int array[9]={0};
     for(fila=0;fila<9;fila++){
