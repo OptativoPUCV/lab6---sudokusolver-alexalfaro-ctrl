@@ -62,23 +62,24 @@ List* get_adj_nodes(Node* n){
             Node *nuevonodo=copy(n);
             nuevonodo->sudo[fila][columna]=1;
             pushFront(list,nuevonodo);
-          }
+          }else{
+            
+            for(int num=1;num<=9;num++){
+            
+              Node *nuevonodo=copy(n);
+              nuevonodo->sudo[fila][columna]=num;
+              pushFront(list,nuevonodo);
+            
+            
+            
           
-          for(int num=1;num<=9;num++){
-            
-            Node *nuevonodo=copy(n);
-            nuevonodo->sudo[fila][columna]=num;
-            pushFront(list,nuevonodo);
-            
-            
+          
+            }
           }
-        
         }
-        
       }
     }
-    
-    return list;
+     return list;
 }
 
 
