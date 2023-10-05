@@ -89,7 +89,9 @@ List* get_adj_nodes(Node* n){
             
             Node *nuevonodo=copy(n);
             nuevonodo->sudo[fila][columna]=num;
-            pushBack(list,nuevonodo);
+            if(is_valid(nuevonodo)){
+              pushBack(list,nuevonodo);
+            }
             
             
           }
