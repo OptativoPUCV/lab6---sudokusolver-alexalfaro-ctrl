@@ -57,37 +57,21 @@ int is_valid(Node* n){
       array[n->sudo[fila][columna]-1]=1;
     }
   }
-  
-  for(columna=0;columna<9;columna++){
-    int array[9]={0};
+
+  for (columna=0;columna<9;columna++){
+    int col[9]={0};
     for(fila=0;fila<9;fila++){
-      int num=n->sudo[fila][columna];
-      if (num!=0){
-        if (array[num]){
-          return 0;
-        }
-        array[num]=1;
+      if(n->sudo[fila][columna]==0){
+        continue;
       }
+      if(col[n->sudo[fila][columna]-1]==1){
+        return 0;
+      }
+      col[n->sudo[fila][columna]-1]=1;
     }
   }
-  for(int i=0;i<9;i+=3){
-    for(int j=0;j<9;j+=3){
-      int nums[10] = {0};
-      for(fila=0;fila<3;fila++){
-        for(columna=0;columna<3;columna++){
-          int num=n->sudo[fila+i][columna+j];
-          if(num!=0){
-            if(nums[num]){
-              return 0;
-            }
-          }
-          nums[num]=1;
-          
-        }
-      }
-    }
-  }
-    return 1;
+
+  return 1;
 }
 
 
