@@ -61,7 +61,7 @@ List* get_adj_nodes(Node* n){
           if (vacio==0){
             Node *nuevonodo=copy(n);
             nuevonodo->sudo[fila][columna]=1;
-            pushFront(list,nuevonodo);
+            pushBack(list,nuevonodo);
             
           }else{
             
