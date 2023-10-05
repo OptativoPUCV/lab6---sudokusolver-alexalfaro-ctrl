@@ -78,7 +78,7 @@ int is_valid(Node* n){
         int j=3*(k%3) + (p%3) ;
         int num = n->sudo[i][j];
         if(num!=0){
-          if(seen[num]){
+          if(matris[num]){
             return 0;
           }
           matris[num]=1;

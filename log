@@ -334,3 +334,29 @@ sudoku.c:116:22: error: expected ‘;’ before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 5b1289e
+Thu 05 Oct 2023 10:12:37 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:76:5: error: expected ‘,’ or ‘;’ before ‘for’
+   76 |     for(p=0;p<9;p++){
+      |     ^~~
+sudoku.c:76:13: error: ‘p’ undeclared (first use in this function)
+   76 |     for(p=0;p<9;p++){
+      |             ^
+sudoku.c:76:13: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:76:20: error: expected ‘;’ before ‘)’ token
+   76 |     for(p=0;p<9;p++){
+      |                    ^
+      |                    ;
+sudoku.c:76:20: error: expected statement before ‘)’ token
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:116:22: error: expected ‘;’ before ‘}’ token
+  116 |           return list
+      |                      ^
+      |                      ;
+  117 |         }
+      |         ~             
+Compilation failed
+b2a0d2e
