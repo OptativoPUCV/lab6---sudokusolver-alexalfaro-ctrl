@@ -43,7 +43,7 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n, int k) {
+int is_valid(Node* n) {
     // Verificar filas
     for (int fila = 0; fila < 9; fila++) {
         int nums[10] = {0}; // Inicializa un array para rastrear los números en la fila
