@@ -70,22 +70,6 @@ int is_valid(Node* n){
       col[n->sudo[fila][columna]-1]=1;
     }
   }
-  for(fila=0;fila<9;fila++){
-    for(columna=0;columna<9;columna++){
-      int sub[9]={0};
-      for(int k=fila;k<fila+3;k++){
-        for(int l=columna;l<columna+3;l++){
-          if(n->sudo[k][l]==0){
-            continue;
-          }
-          if(sub[n->sudo[k][l]-1]==1){
-            return 0;
-          }
-          sub[n->sudo[k][l]-1]=1;
-        }
-      }
-    }
-  }
 
   return 1;
 }
