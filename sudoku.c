@@ -74,22 +74,24 @@ int is_valid(Node* n) {
         }
     }
 
-    // Verificar submatriz específica k
-    for (int p = 0; p < 9; p++) {
-        int i = 3 * (k / 3) + (p / 3);
-        int j = 3 * (k % 3) + (p % 3);
-        int num = n->sudo[i][j];
-        if (num != 0) {
-            int seen[10] = {0}; // Array para rastrear los números vistos en la submatriz
-            if (seen[num]) {
-                // El número ya se ha visto, es un duplicado en la submatriz
-                return 0;
+    // Verificar todas las submatrices de 3x3 (k de 1 a 9)
+    for (int k = 1; k <= 9; k++) {
+        int seen[10] = {0}; // Array para rastrear los números vistos en la submatriz
+        for (int p = 0; p < 9; p++) {
+            int i = 3 * ((k - 1) / 3) + (p / 3);
+            int j = 3 * ((k - 1) % 3) + (p % 3);
+            int num = n->sudo[i][j];
+            if (num != 0) {
+                if (seen[num]) {
+                    // El número ya se ha visto, es un duplicado en la submatriz
+                    return 0;
+                }
+                seen[num] = 1;
             }
-            seen[num] = 1;
         }
     }
 
-    // Si no se encontraron duplicados en filas, columnas o submatriz específica k, el Sudoku es válido
+    // Si no se encontraron duplicados en filas, columnas o submatrices, el Sudoku es válido
     return 1;
 }
 
