@@ -134,8 +134,9 @@ Node *DFS(Node *initial, int *cont) {
   (*cont=0);
   push(pila,initial);
   while(is_empty(pila)==0){
-    (*cont)++;
-    current = last(pila);
+    
+    current = top(pila);
+    pop(pila);
     if(is_final(current)){
       return current;
       
@@ -146,6 +147,7 @@ Node *DFS(Node *initial, int *cont) {
       pushBack(pila,aux);
       aux=next(nodosadj);
     }
+    (*cont)++;
   }
   
   return NULL; 
