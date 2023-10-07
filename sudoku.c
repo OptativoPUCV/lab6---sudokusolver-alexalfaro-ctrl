@@ -141,7 +141,7 @@ Node *DFS(Node *initial, int *cont) {
       return current;
       
     }
-    List* nodosadj=get_adj_nodes(initial);
+    List* nodosadj=get_adj_nodes(current);
     Node* aux=first(nodosadj);
     while(aux!=NULL){
       pushBack(pila,aux);
