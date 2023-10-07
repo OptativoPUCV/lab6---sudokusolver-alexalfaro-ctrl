@@ -76,11 +76,13 @@ int is_valid(Node *n) {
       int i=3*(k/3) + (p/3) ;
       int j=3*(k%3) + (p%3) ;
       int num=n->sudo[i][j];
-      if(num==0||usados[num-1]==1){
+      if(n->sudo[i][j]==0){
+        continue;
+      }
+      if(usados[n->sudo[i][j]-1==1]){
         return 0;
       }
-      usados[num - 1] = 1;
-        
+      usados[n->sudo[i][j]-1]=1;
     }
   }
     
