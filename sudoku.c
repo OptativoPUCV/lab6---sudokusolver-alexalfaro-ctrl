@@ -132,7 +132,7 @@ Node *DFS(Node *initial, int *cont) {
   Stack* pila=NULL;
   Node* current=NULL;
   push(pila,initial);
-  while(!is_empty(pila)){
+  while(is_empty(pila)){
     (*cont)++;
     current = last(pila);
     if(is_final(current)){
