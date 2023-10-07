@@ -79,7 +79,7 @@ int is_valid(Node *n) {
       if(num==0||usados[num-1]==1){
         return 0;
       }
-      used[num - 1] = 1
+      usados[num - 1] = 1;
         
     }
   }
