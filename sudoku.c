@@ -70,26 +70,24 @@ int is_valid(Node *n) {
     }
   }
 
-  for (int k = 0; k < 9; k++) {
-        int used[9] = {0}; // Arreglo para verificar números utilizados en la fila, columna y subgrid
-
-        for (int p = 0; p < 9; p++) {
-            int i = 3 * (k / 3) + (p / 3);
-            int j = 3 * (k % 3) + (p % 3);
-            int num = n->sudo[i][j];
-
-            // Verificar si el número ya ha sido utilizado en la fila, columna o subgrid
-            if (num == 0 || used[num - 1] == 1) {
-                return 0; // Sudoku no es válido
-            }
-            
-            used[num - 1] = 1; // Marcar el número como utilizado
+  for(int i=0;i<3;i++){
+    for(int k=0;k<3;k++){
+      int usados[9]={0};
+      for(fila=i*3;fila<(i+1)*3;fila++){
+        for(columna=k*3;columna<(k+1)*3;columna++){
+          if(n->sudo[fila][columna]==0){
+            continue;
+          }
+          if(usados[n->sudo[fila][columna-1]]==1){
+            return 0;
+          }
+          usados[n->sudo[fila][columna]-1]=1;
         }
+      }
     }
-
-  return 1; // Sudoku es válido
+  }
+  return 1;
 }
-
 
 List *get_adj_nodes(Node *n) {
 
