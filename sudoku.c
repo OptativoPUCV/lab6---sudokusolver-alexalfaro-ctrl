@@ -78,7 +78,7 @@ int is_valid(Node *n) {
           if(n->sudo[fila][columna]==0){
             continue;
           }
-          if(usados[n->sudo[fila][columna-1]]==1){
+          if(usados[n->sudo[fila][columna]-1]==1){
             return 0;
           }
           usados[n->sudo[fila][columna]-1]=1;
