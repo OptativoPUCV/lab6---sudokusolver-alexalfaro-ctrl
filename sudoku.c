@@ -117,7 +117,16 @@ List *get_adj_nodes(Node *n) {
   return list;
 }
 
-int is_final(Node *n) { return 0; }
+int is_final(Node *n) {
+  for(int fila=0;fila<9;fila++){
+    for (int columna;columna<9;columna++){
+      if(n->sudo[fila][columna]==0){
+        return 0;
+      }
+    }
+  }
+  return 1; 
+}
 
 Node *DFS(Node *initial, int *cont) { return NULL; }
 
