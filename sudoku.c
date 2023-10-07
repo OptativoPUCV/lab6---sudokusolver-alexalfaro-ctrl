@@ -69,9 +69,8 @@ int is_valid(Node *n) {
       col[n->sudo[fila][columna] - 1] = 1;
     }
   }
-  
 
-    for (int k = 0; k < 9; k++) {
+  for (int k = 0; k < 9; k++) {
         int used[9] = {0}; // Arreglo para verificar números utilizados en la fila, columna y subgrid
 
         for (int p = 0; p < 9; p++) {
@@ -88,12 +87,9 @@ int is_valid(Node *n) {
         }
     }
 
-    return 1; // Sudoku es válido
+  return 1; // Sudoku es válido
 }
 
-
-  return 1;
-}
 
 List *get_adj_nodes(Node *n) {
 
