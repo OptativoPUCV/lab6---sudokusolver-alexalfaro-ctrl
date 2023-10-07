@@ -128,7 +128,27 @@ int is_final(Node *n) {
   return 1; 
 }
 
-Node *DFS(Node *initial, int *cont) { return NULL; }
+Node *DFS(Node *initial, int *cont) {
+  Stack* pila=NULL;
+  Node* current=NULL;
+  push(pila,initial);
+  while(!is_empty(pila)){
+    (*cont)++;
+    current = last(pila);
+    if(is_final(current)){
+      return current;
+      
+    }
+    List* nodosadj=get_adj_nodes(initial);
+    Node* aux=first(nodosadj);
+    while(aux!=NULL){
+      pushBack(pila,aux);
+      aux=next(nodosadj);
+    }
+  }
+  
+  return NULL; 
+}
 
 /*
 int main( int argc, char *argv[] ){
