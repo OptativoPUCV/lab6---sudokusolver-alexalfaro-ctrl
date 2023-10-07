@@ -69,6 +69,24 @@ int is_valid(Node *n) {
       col[n->sudo[fila][columna] - 1] = 1;
     }
   }
+  
+    for (int gridRow = 0; gridRow < 3; gridRow++) {
+    for (int gridCol = 0; gridCol < 3; gridCol++) {
+      int grid[9] = {0};
+      for (fila = gridRow * 3; fila < (gridRow + 1) * 3; fila++) {
+        for (columna = gridCol * 3; columna < (gridCol + 1) * 3; columna++) {
+          if (n->sudo[fila][columna] == 0) {
+            continue;
+          }
+          if (grid[n->sudo[fila][columna] - 1] == 1) {
+            return 0;
+          }
+          grid[n->sudo[fila][columna] - 1] = 1;
+        }
+      }
+    }
+  }
+
 
 
   return 1;
