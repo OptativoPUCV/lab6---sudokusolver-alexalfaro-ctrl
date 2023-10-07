@@ -129,7 +129,7 @@ int is_final(Node *n) {
 }
 
 Node *DFS(Node *initial, int *cont) {
-  List* pila=NULL;
+  Stack* pila=createStack();
   Node* current=NULL;
   push(pila,initial);
   while(!is_empty(pila)){
